@@ -3,160 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>브랜치 & GitHub 링크 현황</title>
+<title>에이스종합관리 통합 시스템</title>
+<meta name="description" content="에이스종합관리(주) 통합 업무 시스템 바로가기">
 <style>
   :root{
-    color-scheme: light dark;
-    --bg:#f6f8fb; --card:#fff; --text:#1c2333; --muted:#5b6577;
-    --border:#e3e8f0; --accent:#1a3f9e; --accent-bg:#eef2fc;
-    --open:#0a7f4f; --open-bg:#e6f6ee;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#0f1420; --card:#171d2c; --text:#e7ebf5; --muted:#9aa4ba;
-      --border:#2a3245; --accent:#7fa0ff; --accent-bg:#1c2740;
-      --open:#5fd39a; --open-bg:#123527; }
+    --navy-0:#070b14; --navy-1:#0c1424; --navy-2:#131d33;
+    --gold:#cda85e; --gold-soft:#e7cf9b;
+    --text:#eef1f8; --muted:#8f9ab3; --line:rgba(205,168,94,.22);
   }
   *{box-sizing:border-box}
+  html,body{height:100%}
   body{
-    margin:0; padding:2.5rem 1.2rem 4rem; background:var(--bg); color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,Roboto,sans-serif;
-    line-height:1.6;
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(1100px 560px at 12% -10%, rgba(205,168,94,.10), transparent 60%),
+      radial-gradient(900px 520px at 105% 10%, rgba(120,150,255,.08), transparent 55%),
+      linear-gradient(180deg, var(--navy-0), var(--navy-1) 45%, var(--navy-0));
+    color:var(--text);
+    font-family:"Pretendard","Noto Serif KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    display:flex; flex-direction:column; align-items:center;
+    padding:5.5rem 1.5rem 3rem;
   }
-  .wrap{max-width:920px;margin:0 auto}
-  h1{font-size:1.6rem;margin:0 0 .3rem}
-  .lead{color:var(--muted);margin:0 0 1.8rem;font-size:.95rem}
-  .note{
-    background:var(--accent-bg); border:1px solid var(--border); border-radius:10px;
-    padding:.8rem 1rem; font-size:.85rem; color:var(--muted); margin-bottom:2rem;
+  .brand{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:3.2rem}
+  .brand .mark{
+    width:56px;height:56px;border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:1.1rem;
+    background:linear-gradient(160deg, rgba(205,168,94,.14), transparent);
   }
-  h2{font-size:1.1rem;margin:2.2rem 0 .8rem;border-left:4px solid var(--accent);padding-left:.6rem}
-  ul.links{list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-wrap:wrap;gap:.6rem}
-  ul.links li a{
-    display:inline-block;padding:.5rem .9rem;background:var(--card);border:1px solid var(--border);
-    border-radius:8px;color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:600;
+  .brand .mark svg{width:26px;height:26px;stroke:var(--gold-soft)}
+  .brand h1{
+    margin:0; font-size:1.7rem; font-weight:700; letter-spacing:.04em;
+    background:linear-gradient(120deg, var(--gold-soft), #fff 45%, var(--gold-soft));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  ul.links li a:hover{border-color:var(--accent)}
-  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);
-    border-radius:10px;overflow:hidden;font-size:.88rem}
-  th,td{padding:.7rem .8rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
-  th{background:var(--accent-bg);color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.02em}
-  tr:last-child td{border-bottom:none}
-  td.branch{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;white-space:nowrap}
-  td.branch .base-tag{display:block;font-size:.72rem;color:var(--muted);font-family:inherit}
-  .badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.72rem;font-weight:700}
-  .badge.open{background:var(--open-bg);color:var(--open)}
-  .badge.none{background:var(--accent-bg);color:var(--muted)}
-  a.pill{color:var(--accent);text-decoration:none;margin-right:.6rem;white-space:nowrap}
-  a.pill:hover{text-decoration:underline}
-  .table-scroll{overflow-x:auto}
-  footer{margin-top:3rem;color:var(--muted);font-size:.8rem;text-align:center}
+  .brand p{margin:.6rem 0 0; color:var(--muted); font-size:.88rem; letter-spacing:.02em}
+  .brand .rule{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin-top:1.4rem}
+
+  .grid{
+    width:100%; max-width:1080px;
+    display:grid; gap:1.4rem;
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+  }
+  .card{
+    position:relative;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    gap:1rem;
+    padding:2.2rem 1.4rem 1.8rem;
+    text-decoration:none; color:var(--text);
+    background:linear-gradient(165deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+    border:1px solid var(--line);
+    border-radius:16px;
+    backdrop-filter:blur(6px);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, box-shadow .35s, background .35s;
+    overflow:hidden;
+  }
+  .card::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(160px 120px at 50% -10%, rgba(205,168,94,.18), transparent 70%);
+    opacity:0; transition:opacity .35s;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(205,168,94,.55);
+    box-shadow:0 18px 40px -18px rgba(0,0,0,.6), 0 0 0 1px rgba(205,168,94,.12);
+    background:linear-gradient(165deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+  }
+  .card:hover::before{opacity:1}
+  .icon{
+    position:relative;
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg, rgba(205,168,94,.16), rgba(205,168,94,.02));
+    border:1px solid var(--line);
+    transition:border-color .35s, background .35s;
+  }
+  .card:hover .icon{border-color:var(--gold); background:linear-gradient(160deg, rgba(205,168,94,.28), rgba(205,168,94,.04))}
+  .icon svg{width:26px;height:26px;stroke:var(--gold-soft);fill:none;stroke-width:1.5}
+  .card .label{position:relative;font-size:1.02rem;font-weight:700;letter-spacing:.02em}
+  .card .sub{position:relative;font-size:.76rem;color:var(--muted);letter-spacing:.01em}
+  .card .go{
+    position:relative;
+    margin-top:.2rem; font-size:.72rem; color:var(--gold-soft);
+    opacity:0; transform:translateY(4px);
+    transition:opacity .3s, transform .3s;
+    letter-spacing:.06em;
+  }
+  .card:hover .go{opacity:1; transform:translateY(0)}
+
+  footer{margin-top:4rem;color:var(--muted);font-size:.78rem;letter-spacing:.03em;text-align:center}
+  footer .rule{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.2rem}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>브랜치 & GitHub 링크 현황</h1>
-  <p class="lead">airrotc29/payment-order-manual 저장소에 만들어진 작업 브랜치와, 각 브랜치에 연결된 GitHub 링크(브랜치 · 변경사항 비교 · PR)를 한 페이지에서 모아봅니다.</p>
-  <p class="note">이 페이지는 2026-07-15 기준 스냅샷입니다. 새 브랜치가 생기거나 PR 상태가 바뀌면 이 문서도 함께 갱신해야 합니다.</p>
 
-  <h2>저장소 바로가기</h2>
-  <ul class="links">
-    <li><a href="https://github.com/airrotc29/Payment-order-manual" target="_blank" rel="noopener">저장소 홈</a></li>
-    <li><a href="https://github.com/airrotc29/Payment-order-manual/branches" target="_blank" rel="noopener">전체 브랜치</a></li>
-    <li><a href="https://github.com/airrotc29/Payment-order-manual/pulls" target="_blank" rel="noopener">전체 Pull Request</a></li>
-    <li><a href="https://github.com/airrotc29/Payment-order-manual/commits/claude/payment-order-manual-j8cn85" target="_blank" rel="noopener">기준 브랜치 커밋 히스토리</a></li>
-  </ul>
-
-  <h2>작업 브랜치 목록</h2>
-  <div class="table-scroll">
-  <table>
-    <thead>
-      <tr><th>브랜치</th><th>최근 작업 내용</th><th>PR</th><th>링크</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="branch">claude/payment-order-manual-j8cn85<span class="base-tag">기준(base)</span></td>
-        <td>히어로 버튼 동일 크기 + 1줄 배치 반영</td>
-        <td><span class="badge none">—</span></td>
-        <td>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/payment-order-manual-j8cn85" target="_blank" rel="noopener">브랜치</a>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/commits/claude/payment-order-manual-j8cn85" target="_blank" rel="noopener">커밋 히스토리</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="branch">claude/apartment-defect-app-esv98q</td>
-        <td>모바일에서 보고서 보기가 반응 없던 문제 수정 (하자적출 시스템)</td>
-        <td><span class="badge open">Open #1</span></td>
-        <td>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/apartment-defect-app-esv98q" target="_blank" rel="noopener">브랜치</a>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/apartment-defect-app-esv98q" target="_blank" rel="noopener">비교</a>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/pull/1" target="_blank" rel="noopener">PR #1</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="branch">claude/bond-seizure-collection-order-6v8wut</td>
-        <td>채권압류 및 추심명령 신청서 실무 매뉴얼 추가</td>
-        <td><span class="badge none">—</span></td>
-        <td>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/bond-seizure-collection-order-6v8wut" target="_blank" rel="noopener">브랜치</a>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/bond-seizure-collection-order-6v8wut" target="_blank" rel="noopener">비교</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="branch">claude/kakao-sync</td>
-        <td>카카오톡 문의 기능 추가 (플로팅 버튼 + 문의 섹션 버튼)</td>
-        <td><span class="badge none">—</span></td>
-        <td>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/kakao-sync" target="_blank" rel="noopener">브랜치</a>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/kakao-sync" target="_blank" rel="noopener">비교</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="branch">claude/kakao-sync2</td>
-        <td>진행율 최신순 정렬 + 전체 파일 누적상태 통합</td>
-        <td><span class="badge none">—</span></td>
-        <td>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/kakao-sync2" target="_blank" rel="noopener">브랜치</a>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/kakao-sync2" target="_blank" rel="noopener">비교</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="branch">claude/mobile-app-icon-launcher-p2d384</td>
-        <td>히어로 CTA 버튼 폭을 줄여 데스크톱에서 4개가 한 줄에 표시되도록 조정</td>
-        <td><span class="badge none">—</span></td>
-        <td>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/mobile-app-icon-launcher-p2d384" target="_blank" rel="noopener">브랜치</a>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/mobile-app-icon-launcher-p2d384" target="_blank" rel="noopener">비교</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="branch">claude/branch-github-links-dashboard-x70yzb</td>
-        <td>브랜치 & GitHub 링크 현황 페이지 추가</td>
-        <td><span class="badge none">—</span></td>
-        <td>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/branch-github-links-dashboard-x70yzb" target="_blank" rel="noopener">브랜치</a>
-          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/branch-github-links-dashboard-x70yzb" target="_blank" rel="noopener">비교</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="brand">
+    <div class="mark">
+      <svg viewBox="0 0 24 24" stroke-width="1.4" fill="none"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h1>에이스종합관리 통합 시스템</h1>
+    <p>ACE Integrated Management Portal</p>
+    <div class="rule"></div>
   </div>
 
-  <h2>PR 상태</h2>
-  <div class="table-scroll">
-  <table>
-    <thead><tr><th>PR</th><th>브랜치 → 기준</th><th>상태</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><a class="pill" href="https://github.com/airrotc29/Payment-order-manual/pull/1" target="_blank" rel="noopener">#1</a></td>
-        <td class="branch">claude/apartment-defect-app-esv98q → claude/payment-order-manual-j8cn85</td>
-        <td><span class="badge open">Open</span></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-  <p class="lead" style="margin-top:1rem">나머지 브랜치는 아직 열린 PR이 없습니다. 위 "비교" 링크에서 그대로 <strong>Create pull request</strong> 버튼을 눌러 PR을 생성할 수 있습니다.</p>
+  <div class="grid">
+    <a class="card" href="https://airrotc29.github.io/construction-defect-detection-app/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L3 18v3h3l6.1-6.1a4 4 0 0 0 5.6-5.6l-2.65 2.65a1.5 1.5 0 0 1-2.1-2.1L15.6 7.2z"/></svg></span>
+      <span class="label">하자관리</span>
+      <span class="sub">건설 하자 적출·관리 시스템</span>
+      <span class="go">바로가기 →</span>
+    </a>
 
-  <footer>airrotc29 · Branch-GitHub-links-dashboard</footer>
-</div>
+    <a class="card" href="https://airrotc29.github.io/Employee-Evaluation-/site-evaluation-system.html" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+      <span class="label">직원평가관리</span>
+      <span class="sub">사업장 평가 입력 · 분석</span>
+      <span class="go">바로가기 →</span>
+    </a>
+
+    <a class="card" href="https://airrotc29.github.io/management-rule/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/></svg></span>
+      <span class="label">관리규약</span>
+      <span class="sub">공동주택 관리규약 안내</span>
+      <span class="go">바로가기 →</span>
+    </a>
+
+    <a class="card" href="https://airrotc29.github.io/Payment-order-manual/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1h.3a2.2 2.2 0 0 1 0 4.4h-.6a2.2 2.2 0 0 0 0 4.4h.3a2.5 2.5 0 0 0 2.5-1"/></svg></span>
+      <span class="label">채권관리</span>
+      <span class="sub">지급명령 · 채권압류 실무</span>
+      <span class="go">바로가기 →</span>
+    </a>
+
+    <a class="card" href="https://airrotc29.github.io/branch-communication-webapp/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-5h4v5M9 12h.01M15 12h.01M9 9h.01M15 9h.01"/></svg></span>
+      <span class="label">지점사업소 관리</span>
+      <span class="sub">지점 · 사업소 커뮤니케이션</span>
+      <span class="go">바로가기 →</span>
+    </a>
+  </div>
+
+  <footer>
+    <div class="rule"></div>
+    에이스종합관리(주)
+  </footer>
+
 </body>
 </html>
