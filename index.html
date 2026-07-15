@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>브랜치 & GitHub 링크 현황</title>
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#f6f8fb; --card:#fff; --text:#1c2333; --muted:#5b6577;
+    --border:#e3e8f0; --accent:#1a3f9e; --accent-bg:#eef2fc;
+    --open:#0a7f4f; --open-bg:#e6f6ee;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0f1420; --card:#171d2c; --text:#e7ebf5; --muted:#9aa4ba;
+      --border:#2a3245; --accent:#7fa0ff; --accent-bg:#1c2740;
+      --open:#5fd39a; --open-bg:#123527; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:2.5rem 1.2rem 4rem; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,Roboto,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  h1{font-size:1.6rem;margin:0 0 .3rem}
+  .lead{color:var(--muted);margin:0 0 1.8rem;font-size:.95rem}
+  .note{
+    background:var(--accent-bg); border:1px solid var(--border); border-radius:10px;
+    padding:.8rem 1rem; font-size:.85rem; color:var(--muted); margin-bottom:2rem;
+  }
+  h2{font-size:1.1rem;margin:2.2rem 0 .8rem;border-left:4px solid var(--accent);padding-left:.6rem}
+  ul.links{list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-wrap:wrap;gap:.6rem}
+  ul.links li a{
+    display:inline-block;padding:.5rem .9rem;background:var(--card);border:1px solid var(--border);
+    border-radius:8px;color:var(--accent);text-decoration:none;font-size:.88rem;font-weight:600;
+  }
+  ul.links li a:hover{border-color:var(--accent)}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);
+    border-radius:10px;overflow:hidden;font-size:.88rem}
+  th,td{padding:.7rem .8rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:var(--accent-bg);color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.02em}
+  tr:last-child td{border-bottom:none}
+  td.branch{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;white-space:nowrap}
+  td.branch .base-tag{display:block;font-size:.72rem;color:var(--muted);font-family:inherit}
+  .badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.72rem;font-weight:700}
+  .badge.open{background:var(--open-bg);color:var(--open)}
+  .badge.none{background:var(--accent-bg);color:var(--muted)}
+  a.pill{color:var(--accent);text-decoration:none;margin-right:.6rem;white-space:nowrap}
+  a.pill:hover{text-decoration:underline}
+  .table-scroll{overflow-x:auto}
+  footer{margin-top:3rem;color:var(--muted);font-size:.8rem;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>브랜치 & GitHub 링크 현황</h1>
+  <p class="lead">airrotc29/payment-order-manual 저장소에 만들어진 작업 브랜치와, 각 브랜치에 연결된 GitHub 링크(브랜치 · 변경사항 비교 · PR)를 한 페이지에서 모아봅니다.</p>
+  <p class="note">이 페이지는 2026-07-15 기준 스냅샷입니다. 새 브랜치가 생기거나 PR 상태가 바뀌면 이 문서도 함께 갱신해야 합니다.</p>
+
+  <h2>저장소 바로가기</h2>
+  <ul class="links">
+    <li><a href="https://github.com/airrotc29/Payment-order-manual" target="_blank" rel="noopener">저장소 홈</a></li>
+    <li><a href="https://github.com/airrotc29/Payment-order-manual/branches" target="_blank" rel="noopener">전체 브랜치</a></li>
+    <li><a href="https://github.com/airrotc29/Payment-order-manual/pulls" target="_blank" rel="noopener">전체 Pull Request</a></li>
+    <li><a href="https://github.com/airrotc29/Payment-order-manual/commits/claude/payment-order-manual-j8cn85" target="_blank" rel="noopener">기준 브랜치 커밋 히스토리</a></li>
+  </ul>
+
+  <h2>작업 브랜치 목록</h2>
+  <div class="table-scroll">
+  <table>
+    <thead>
+      <tr><th>브랜치</th><th>최근 작업 내용</th><th>PR</th><th>링크</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="branch">claude/payment-order-manual-j8cn85<span class="base-tag">기준(base)</span></td>
+        <td>히어로 버튼 동일 크기 + 1줄 배치 반영</td>
+        <td><span class="badge none">—</span></td>
+        <td>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/payment-order-manual-j8cn85" target="_blank" rel="noopener">브랜치</a>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/commits/claude/payment-order-manual-j8cn85" target="_blank" rel="noopener">커밋 히스토리</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="branch">claude/apartment-defect-app-esv98q</td>
+        <td>모바일에서 보고서 보기가 반응 없던 문제 수정 (하자적출 시스템)</td>
+        <td><span class="badge open">Open #1</span></td>
+        <td>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/apartment-defect-app-esv98q" target="_blank" rel="noopener">브랜치</a>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/apartment-defect-app-esv98q" target="_blank" rel="noopener">비교</a>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/pull/1" target="_blank" rel="noopener">PR #1</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="branch">claude/bond-seizure-collection-order-6v8wut</td>
+        <td>채권압류 및 추심명령 신청서 실무 매뉴얼 추가</td>
+        <td><span class="badge none">—</span></td>
+        <td>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/bond-seizure-collection-order-6v8wut" target="_blank" rel="noopener">브랜치</a>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/bond-seizure-collection-order-6v8wut" target="_blank" rel="noopener">비교</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="branch">claude/kakao-sync</td>
+        <td>카카오톡 문의 기능 추가 (플로팅 버튼 + 문의 섹션 버튼)</td>
+        <td><span class="badge none">—</span></td>
+        <td>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/kakao-sync" target="_blank" rel="noopener">브랜치</a>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/kakao-sync" target="_blank" rel="noopener">비교</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="branch">claude/kakao-sync2</td>
+        <td>진행율 최신순 정렬 + 전체 파일 누적상태 통합</td>
+        <td><span class="badge none">—</span></td>
+        <td>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/kakao-sync2" target="_blank" rel="noopener">브랜치</a>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/kakao-sync2" target="_blank" rel="noopener">비교</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="branch">claude/mobile-app-icon-launcher-p2d384</td>
+        <td>히어로 CTA 버튼 폭을 줄여 데스크톱에서 4개가 한 줄에 표시되도록 조정</td>
+        <td><span class="badge none">—</span></td>
+        <td>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/mobile-app-icon-launcher-p2d384" target="_blank" rel="noopener">브랜치</a>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/mobile-app-icon-launcher-p2d384" target="_blank" rel="noopener">비교</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="branch">claude/branch-github-links-dashboard-x70yzb</td>
+        <td>브랜치 & GitHub 링크 현황 페이지 추가</td>
+        <td><span class="badge none">—</span></td>
+        <td>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/tree/claude/branch-github-links-dashboard-x70yzb" target="_blank" rel="noopener">브랜치</a>
+          <a class="pill" href="https://github.com/airrotc29/Payment-order-manual/compare/claude/payment-order-manual-j8cn85...claude/branch-github-links-dashboard-x70yzb" target="_blank" rel="noopener">비교</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>PR 상태</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>PR</th><th>브랜치 → 기준</th><th>상태</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><a class="pill" href="https://github.com/airrotc29/Payment-order-manual/pull/1" target="_blank" rel="noopener">#1</a></td>
+        <td class="branch">claude/apartment-defect-app-esv98q → claude/payment-order-manual-j8cn85</td>
+        <td><span class="badge open">Open</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="lead" style="margin-top:1rem">나머지 브랜치는 아직 열린 PR이 없습니다. 위 "비교" 링크에서 그대로 <strong>Create pull request</strong> 버튼을 눌러 PR을 생성할 수 있습니다.</p>
+
+  <footer>airrotc29 · Branch-GitHub-links-dashboard</footer>
+</div>
+</body>
+</html>
