@@ -130,9 +130,67 @@
   @media (hover:none){
     .card .go{opacity:1;transform:none;color:var(--muted)}
   }
+
+  #hub-content{display:none; flex-direction:column; align-items:center; width:100%}
+
+  #gate{
+    position:fixed; inset:0; z-index:50;
+    display:flex; align-items:center; justify-content:center;
+    padding:1.5rem;
+    background:
+      radial-gradient(1100px 560px at 12% -10%, rgba(205,168,94,.10), transparent 60%),
+      linear-gradient(180deg, var(--navy-0), var(--navy-1) 45%, var(--navy-0));
+  }
+  #gate.unlocked{display:none}
+  .gate-box{
+    width:100%; max-width:340px;
+    display:flex; flex-direction:column; align-items:center; text-align:center; gap:1.1rem;
+    padding:2.6rem 2rem;
+    background:linear-gradient(165deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+    border:1px solid var(--line); border-radius:18px;
+  }
+  .gate-box .mark{
+    width:52px;height:52px;border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg, rgba(205,168,94,.14), transparent);
+  }
+  .gate-box .mark svg{width:24px;height:24px;stroke:var(--gold-soft)}
+  .gate-box h2{margin:0;font-size:1.05rem;font-weight:700;letter-spacing:.02em}
+  .gate-box p{margin:0;color:var(--muted);font-size:.8rem}
+  .gate-box input{
+    width:100%; text-align:center; letter-spacing:.3em;
+    padding:.75rem 1rem; border-radius:10px;
+    border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--text);
+    font-size:1rem; outline:none;
+  }
+  .gate-box input:focus{border-color:var(--gold)}
+  .gate-box button{
+    width:100%; padding:.75rem 1rem; border-radius:10px; border:none; cursor:pointer;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color:var(--navy-0); font-weight:800; font-size:.88rem; letter-spacing:.02em;
+    transition:transform .2s;
+  }
+  .gate-box button:active{transform:scale(.98)}
+  .gate-box .error{color:#e8a2a2;font-size:.78rem;min-height:1.1em}
 </style>
 </head>
 <body>
+
+  <div id="gate">
+    <form class="gate-box" id="gate-form" autocomplete="off">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" stroke-width="1.4" fill="none"><path d="M6 10V7a6 6 0 0 1 12 0v3M5 10h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>관리자 로그인</h2>
+      <p>비밀번호를 입력해 주세요</p>
+      <input type="password" id="gate-pw" inputmode="numeric" autofocus>
+      <button type="submit">입장</button>
+      <div class="error" id="gate-error"></div>
+    </form>
+  </div>
+
+  <div id="hub-content">
 
   <div class="brand">
     <div class="mark">
@@ -220,6 +278,52 @@
     <div class="rule"></div>
     에이스테크종합관리(주)
   </footer>
+
+  </div>
+
+  <script>
+  (function(){
+    var PASSWORD_HASH = '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4';
+    var STORAGE_KEY = 'hub-auth-ok';
+    var gate = document.getElementById('gate');
+    var content = document.getElementById('hub-content');
+    var form = document.getElementById('gate-form');
+    var input = document.getElementById('gate-pw');
+    var error = document.getElementById('gate-error');
+
+    function unlock(){
+      gate.classList.add('unlocked');
+      content.style.display = 'flex';
+    }
+
+    function sha256Hex(text){
+      var data = new TextEncoder().encode(text);
+      return crypto.subtle.digest('SHA-256', data).then(function(buf){
+        return Array.from(new Uint8Array(buf)).map(function(b){
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+      });
+    }
+
+    if(localStorage.getItem(STORAGE_KEY) === '1'){
+      unlock();
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      sha256Hex(input.value).then(function(hash){
+        if(hash === PASSWORD_HASH){
+          localStorage.setItem(STORAGE_KEY, '1');
+          unlock();
+        } else {
+          error.textContent = '비밀번호가 올바르지 않습니다.';
+          input.value = '';
+          input.focus();
+        }
+      });
+    });
+  })();
+  </script>
 
   <script>
   (function(){
