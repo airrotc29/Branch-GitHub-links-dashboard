@@ -223,19 +223,27 @@
 
   <script>
   (function(){
-    var NEW_WINDOW_MS = 7 * 24 * 60 * 60 * 1000; // 최근 7일 내 업데이트면 NEW 표시
+    var NEW_WINDOW_MS = 7 * 24 * 60 * 60 * 1000; // 한 번도 확인 안 한 항목은 최근 7일 이내 업데이트까지 NEW로 간주
     var now = Date.now();
+    var seenKey = function(repo){ return 'hub-seen:' + repo; };
+
     document.querySelectorAll('.card[data-repo]').forEach(function(card){
       var repo = card.getAttribute('data-repo');
+      var badge = card.querySelector('.badge-new');
+
+      // 카드를 클릭해 확인하면 그 시점을 "확인함"으로 저장하고 배지를 바로 숨김
+      card.addEventListener('click', function(){
+        localStorage.setItem(seenKey(repo), String(Date.now()));
+        if(badge) badge.hidden = true;
+      });
+
       fetch('https://api.github.com/repos/' + repo + '/commits?per_page=1')
         .then(function(res){ return res.ok ? res.json() : null; })
         .then(function(commits){
           if(!commits || !commits[0]) return;
           var updated = new Date(commits[0].commit.committer.date).getTime();
-          if(now - updated <= NEW_WINDOW_MS){
-            var badge = card.querySelector('.badge-new');
-            if(badge) badge.hidden = false;
-          }
+          var lastSeen = Number(localStorage.getItem(seenKey(repo))) || (now - NEW_WINDOW_MS);
+          if(updated > lastSeen && badge) badge.hidden = false;
         })
         .catch(function(){ /* API 제한·네트워크 오류 시 조용히 무시 */ });
     });
