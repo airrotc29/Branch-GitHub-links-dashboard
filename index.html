@@ -83,6 +83,15 @@
   }
   .card:hover .icon{border-color:var(--gold); background:linear-gradient(160deg, rgba(205,168,94,.28), rgba(205,168,94,.04))}
   .icon svg{width:26px;height:26px;stroke:var(--gold-soft);fill:none;stroke-width:1.5}
+  .badge-new{
+    position:absolute; top:-7px; right:-12px;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color:var(--navy-0); font-size:.6rem; font-weight:800; letter-spacing:.03em;
+    padding:.16rem .42rem; border-radius:999px;
+    box-shadow:0 3px 8px rgba(0,0,0,.4), 0 0 0 3px var(--navy-1);
+    white-space:nowrap;
+  }
+  .badge-new[hidden]{display:none}
   .card .label{position:relative;font-size:1.02rem;font-weight:700;letter-spacing:.02em}
   .card .sub{position:relative;font-size:.76rem;color:var(--muted);letter-spacing:.01em}
   .card .go{
@@ -109,6 +118,7 @@
     .card{padding:1.5rem .8rem 1.3rem;gap:.6rem;border-radius:14px}
     .icon{width:46px;height:46px}
     .icon svg{width:21px;height:21px}
+    .badge-new{top:-6px;right:-9px;font-size:.52rem;padding:.13rem .36rem}
     .card .label{font-size:.86rem}
     .card .sub{font-size:.68rem;line-height:1.35}
     .card .go{display:none}
@@ -134,29 +144,29 @@
   </div>
 
   <div class="grid">
-    <a class="card" href="https://airrotc29.github.io/construction-defect-detection-app/" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L3 18v3h3l6.1-6.1a4 4 0 0 0 5.6-5.6l-2.65 2.65a1.5 1.5 0 0 1-2.1-2.1L15.6 7.2z"/></svg></span>
+    <a class="card" href="https://airrotc29.github.io/construction-defect-detection-app/" target="_blank" rel="noopener" data-repo="airrotc29/construction-defect-detection-app">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L3 18v3h3l6.1-6.1a4 4 0 0 0 5.6-5.6l-2.65 2.65a1.5 1.5 0 0 1-2.1-2.1L15.6 7.2z"/></svg><span class="badge-new" hidden>NEW</span></span>
       <span class="label">하자관리</span>
       <span class="sub">건설 하자 적출·관리 시스템</span>
       <span class="go">바로가기 →</span>
     </a>
 
-    <a class="card" href="https://airrotc29.github.io/Multi-location-reporting-system/" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1h.3a2.2 2.2 0 0 1 0 4.4h-.6a2.2 2.2 0 0 0 0 4.4h.3a2.5 2.5 0 0 0 2.5-1"/></svg></span>
+    <a class="card" href="https://airrotc29.github.io/Multi-location-reporting-system/" target="_blank" rel="noopener" data-repo="airrotc29/Multi-location-reporting-system">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1h.3a2.2 2.2 0 0 1 0 4.4h-.6a2.2 2.2 0 0 0 0 4.4h.3a2.5 2.5 0 0 0 2.5-1"/></svg><span class="badge-new" hidden>NEW</span></span>
       <span class="label">채권관리</span>
       <span class="sub">사업장별 채권 현황 보고</span>
       <span class="go">바로가기 →</span>
     </a>
 
-    <a class="card" href="https://airrotc29.github.io/car-care-list/" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0M5 17l1.2-5.4A2 2 0 0 1 8.15 10h7.7a2 2 0 0 1 1.95 1.6L19 17M6.5 13.5h11"/></svg></span>
+    <a class="card" href="https://airrotc29.github.io/car-care-list/" target="_blank" rel="noopener" data-repo="airrotc29/car-care-list">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0M5 17l1.2-5.4A2 2 0 0 1 8.15 10h7.7a2 2 0 0 1 1.95 1.6L19 17M6.5 13.5h11"/></svg><span class="badge-new" hidden>NEW</span></span>
       <span class="label">차량 운행관리</span>
       <span class="sub">차량 점검 · 운행 기록</span>
       <span class="go">바로가기 →</span>
     </a>
 
-    <a class="card" href="https://airrotc29.github.io/Clothing-supply/" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 4 7l2 3 2-1.4V20h8V8.6L18 10l2-3-4-3-2 2h-4z"/></svg></span>
+    <a class="card" href="https://airrotc29.github.io/Clothing-supply/" target="_blank" rel="noopener" data-repo="airrotc29/Clothing-supply">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 4 7l2 3 2-1.4V20h8V8.6L18 10l2-3-4-3-2 2h-4z"/></svg><span class="badge-new" hidden>NEW</span></span>
       <span class="label">피복 신청/접수관리</span>
       <span class="sub">피복 신청 · 접수 현황</span>
       <span class="go">바로가기 →</span>
@@ -169,15 +179,15 @@
       <span class="go">바로가기 →</span>
     </a>
 
-    <a class="card" href="https://airrotc29.github.io/branch-communication-webapp/" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-5h4v5M9 12h.01M15 12h.01M9 9h.01M15 9h.01"/></svg></span>
+    <a class="card" href="https://airrotc29.github.io/branch-communication-webapp/" target="_blank" rel="noopener" data-repo="airrotc29/branch-communication-webapp">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-5h4v5M9 12h.01M15 12h.01M9 9h.01M15 9h.01"/></svg><span class="badge-new" hidden>NEW</span></span>
       <span class="label">지점사업소 관리</span>
       <span class="sub">지점 · 사업소 커뮤니케이션</span>
       <span class="go">바로가기 →</span>
     </a>
 
-    <a class="card" href="https://airrotc29.github.io/castingvote/" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M5 4h11l3 3v13H5z"/></svg></span>
+    <a class="card" href="https://airrotc29.github.io/castingvote/" target="_blank" rel="noopener" data-repo="airrotc29/castingvote">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M5 4h11l3 3v13H5z"/></svg><span class="badge-new" hidden>NEW</span></span>
       <span class="label">관리단 집회 지원</span>
       <span class="sub">전자투표 · 집회 안내</span>
       <span class="go">바로가기 →</span>
@@ -190,16 +200,16 @@
       <span class="go">바로가기 →</span>
     </a>
 
-    <a class="card" href="https://airrotc29.github.io/management-rule/" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/></svg></span>
+    <a class="card" href="https://airrotc29.github.io/management-rule/" target="_blank" rel="noopener" data-repo="airrotc29/management-rule">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/></svg><span class="badge-new" hidden>NEW</span></span>
       <span class="label">관리규약</span>
       <span class="sub">공동주택 관리규약 안내</span>
       <span class="go">바로가기 →</span>
     </a>
 
     <!-- 채권관리 교육: 마지막 카드로 고정 배치 -->
-    <a class="card" href="https://airrotc29.github.io/Payment-order-manual/" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+    <a class="card" href="https://airrotc29.github.io/Payment-order-manual/" target="_blank" rel="noopener" data-repo="airrotc29/Payment-order-manual">
+      <span class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg><span class="badge-new" hidden>NEW</span></span>
       <span class="label">채권관리 교육</span>
       <span class="sub">지급명령 · 채권압류 실무</span>
       <span class="go">바로가기 →</span>
@@ -211,5 +221,25 @@
     에이스테크종합관리(주)
   </footer>
 
+  <script>
+  (function(){
+    var NEW_WINDOW_MS = 7 * 24 * 60 * 60 * 1000; // 최근 7일 내 업데이트면 NEW 표시
+    var now = Date.now();
+    document.querySelectorAll('.card[data-repo]').forEach(function(card){
+      var repo = card.getAttribute('data-repo');
+      fetch('https://api.github.com/repos/' + repo + '/commits?per_page=1')
+        .then(function(res){ return res.ok ? res.json() : null; })
+        .then(function(commits){
+          if(!commits || !commits[0]) return;
+          var updated = new Date(commits[0].commit.committer.date).getTime();
+          if(now - updated <= NEW_WINDOW_MS){
+            var badge = card.querySelector('.badge-new');
+            if(badge) badge.hidden = false;
+          }
+        })
+        .catch(function(){ /* API 제한·네트워크 오류 시 조용히 무시 */ });
+    });
+  })();
+  </script>
 </body>
 </html>
